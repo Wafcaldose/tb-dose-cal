@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: tb-dose-cal
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python tb_dose_cal.py
