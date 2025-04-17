@@ -58,7 +58,7 @@ def build_tb_flex(weight):
                         TextComponent(text=f"R (Rifampicin): {r_min}-{r_max} มก./วัน", size="sm"),
                         TextComponent(text=f"Z (Pyrazinamide): {z_min}-{z_max} มก./วัน", size="sm"),
                         TextComponent(text=f"E (Ethambutol): {e_min}-{e_max} มก./วัน", size="sm"),
-                        TextComponent(text="➖ ขนาดยาที่แนะนำ:", weight="bold", size="md", margin="lg"),
+                        TextComponent(text="➖ ขนาดยาที่แนะนำตามแนวทางการควบคุมวัณโรคประเทศไทยพ.ศ.2564:", weight="bold", size="md", margin="lg"),
                         TextComponent(text=f"H: {recommended['H']} มก./วัน", size="sm"),
                         TextComponent(text=f"R: {recommended['R']} มก./วัน", size="sm"),
                         TextComponent(text=f"Z: {recommended['Z']} มก./วัน", size="sm"),
