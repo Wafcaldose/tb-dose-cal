@@ -20,16 +20,12 @@ def build_tb_flex(weight):
     # กลุ่มน้ำหนัก
     if weight < 35:
         weight_range = "น้ำหนักต่ำกว่าเกณฑ์ (<35 กก.)"
-        recommended = {"H": "-", "R": "-", "Z": "-", "E": "-"}
     elif 35 <= weight <= 49:
         weight_range = "35-49 กก."
-        recommended = {"H": 300, "R": 450, "Z": 1000, "E": 800}
     elif 50 <= weight <= 69:
         weight_range = "50-69 กก."
-        recommended = {"H": 300, "R": 600, "Z": 1500, "E": 1000}
     else:
         weight_range = ">70 กก."
-        recommended = {"H": 300, "R": 600, "Z": 2000, "E": 1200}
 
     # คำนวณ min-max ตามสูตร
     h_min = round(4 * weight)
@@ -45,9 +41,9 @@ def build_tb_flex(weight):
         body=BoxComponent(
             layout="vertical",
             contents=[
-                TextComponent(text=f"TB ยาตามน้ำหนัก", weight="bold", size="lg"),
+                TextComponent(text="TB ยาตามน้ำหนัก", weight="bold", size="lg"),
                 TextComponent(text=f"น้ำหนัก: {weight} กก.", margin="md"),
-                TextComponent(text=f"กลุ่มน้ำหนักแนะนำ: {weight_range}", margin="sm", size="sm", color="#555555"),
+                TextComponent(text=f"กลุ่มน้ำหนัก: {weight_range}", margin="sm", size="sm", color="#555555"),
                 BoxComponent(
                     layout="vertical",
                     margin="lg",
@@ -58,17 +54,13 @@ def build_tb_flex(weight):
                         TextComponent(text=f"R (Rifampicin): {r_min}-{r_max} มก./วัน", size="sm"),
                         TextComponent(text=f"Z (Pyrazinamide): {z_min}-{z_max} มก./วัน", size="sm"),
                         TextComponent(text=f"E (Ethambutol): {e_min}-{e_max} มก./วัน", size="sm"),
-                        TextComponent(text="➖ ขนาดยาที่แนะนำตามแนวทางการควบคุมวัณโรคประเทศไทยพ.ศ.2564:", weight="bold", size="md", margin="lg", wrap=True),
-                        TextComponent(text=f"H: {recommended['H']} มก./วัน", size="sm"),
-                        TextComponent(text=f"R: {recommended['R']} มก./วัน", size="sm"),
-                        TextComponent(text=f"Z: {recommended['Z']} มก./วัน", size="sm"),
-                        TextComponent(text=f"E: {recommended['E']} มก./วัน", size="sm"),
                     ]
                 )
             ]
         )
     )
     return FlexSendMessage(alt_text="ผลคำนวณยาวัณโรค", contents=bubble)
+
 
 
 @app.route("/callback", methods=['POST'])
